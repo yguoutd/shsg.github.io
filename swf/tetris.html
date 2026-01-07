@@ -1,42 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Tetris</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<title>Ruffle SWF Example</title>
+
+<!-- Load Ruffle -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+<style>
+body {
+background: #111;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+
+#player {
+width: 640px;
+height: 480px;
+border: 2px solid #444;
+}
+</style>
 </head>
-    <style>
-        /* ----------------------- 基础布局 ----------------------- */
-        body { 
-            background-color: #1a1c22;
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; /* 使用 min-height 确保高度足够 */
-            overflow: auto; /* 允许在小设备上滚动 */
-        }
-
-        /* ----------------------- 播放器填充容器 ----------------------- */
-        #flash-container > ruffle-player {
-            position: absolute; /* 让播放器绝对定位到容器内部 */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-    </style>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
-    <div id="flash-container"></div>
-    <script>
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("flash-container");
-        container.appendChild(player);
-        // 使用您提供的 SWF 链接
-        player.load("https://github.com/yguoutd/swfholder/raw/refs/heads/main/tetris.swf");
-    </script>
+
+<div id="player"></div>
+
+<script>
+// Create Ruffle player
+const ruffle = window.RufflePlayer.newest();
+const player = ruffle.createPlayer();
+
+// Add player to page
+document.getElementById("player").appendChild(player);
+
+// Load the SWF (IMPORTANT: must be a raw .swf URL)
+player.load(
+"https://raw.githubusercontent.com/ygouttd/swfolder/main/tetris.swf"
+);
+</script>
+
 </body>
 </html>
