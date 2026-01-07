@@ -5,6 +5,28 @@
     <title>Tetris Flash Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
+    <style>
+        /* ----------------------- 基础布局 ----------------------- */
+        body { 
+            background-color: #1a1c22;
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; /* 使用 min-height 确保高度足够 */
+            overflow: auto; /* 允许在小设备上滚动 */
+        }
+
+        /* ----------------------- 播放器填充容器 ----------------------- */
+        #flash-container > ruffle-player {
+            position: absolute; /* 让播放器绝对定位到容器内部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
     <div id="flash-container"></div>
